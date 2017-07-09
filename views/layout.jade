@@ -3,7 +3,10 @@ html
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    if process.env.deployPath
+      link(rel='stylesheet', href=process.env.deployPath + '/public/bootstrap/css/bootstrap.css')
+    else
+      link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
   body
     .container
       .panel.panel-default.text-center
@@ -21,8 +24,12 @@ html
   //- script(src='/common/services/geolocation.service.js')
   //- script(src='/common/filters/formatDistance.filter.js')
   //- script(src='/common/directives/ratingStars/ratingStars.directive.js')
-  script(src='/javascripts/jquery-3.2.1.min.js')
-  script(src='/bootstrap/js/bootstrap.min.js')
+  if process.env.deployPath
+    script(src=process.env.deployPath + '/public/javascripts/jquery-3.2.1.min.js')
+    script(src=process.env.deployPath + '/public/bootstrap/js/bootstrap.min.js')
+  else
+    script(src='/javascripts/jquery-3.2.1.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
   
   div#myModal(class="modal fade")
     div.modal-dialog

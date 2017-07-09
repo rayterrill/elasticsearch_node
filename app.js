@@ -7,6 +7,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 var PORT = process.env.PORT || 3000;
+//set variable deployPath in web.config to match the virtual directory in IIS
+//if app.js is run from command line (node app.js) deployPath is set to empty string.
 var deployPath = process.env.deployPath || "";
 
 var sendJsonResponse = function(res, status, content) {
@@ -14,7 +16,7 @@ var sendJsonResponse = function(res, status, content) {
     res.json(content);
 };
 
-app.get('/', function (req, res) {
+app.get(deployPath + '/', function (req, res) {
    //search cluster for data
    esClient.search({  
       body: {
