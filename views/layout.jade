@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+  body
+    .container
+      .panel.panel-default.text-center
+        h1 NodeJS/ElasticSearch Demo
+
+  .container
+    .row
+      block content
+  //- script(src='/angular/angular.min.js')
+  //- script(src='/angular/loc8rApp.js')
+  //- script(src='/lib/angular-route.min.js')
+  //- script(src='/app.js')
+  //- script(src='/home/home.controller.js')
+  //- script(src='/common/services/loc8rData.service.js')
+  //- script(src='/common/services/geolocation.service.js')
+  //- script(src='/common/filters/formatDistance.filter.js')
+  //- script(src='/common/directives/ratingStars/ratingStars.directive.js')
+  script(src='/javascripts/jquery-3.2.1.min.js')
+  script(src='/bootstrap/js/bootstrap.min.js')
+  
+  div#myModal(class="modal fade")
+    div.modal-dialog
+      div.modal-content
+        div.modal-body This example uses NodeJS to query ElasticSearch, publishing the data using the NodeJS Express framework and the Jade templating engine, along with Bootstrap for a responsive design.<br /><br />Boomshakalaka.
+
+  nav.navbar.navbar-inverse.navbar-fixed-bottom
+    .container-fluid
+      ul.nav.navbar-nav
+        li
+          a(href="#", data-toggle="modal", data-target="#myModal") Wanna know how this works? Click here.
